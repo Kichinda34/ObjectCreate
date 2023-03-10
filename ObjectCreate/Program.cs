@@ -2,21 +2,34 @@
 {
     public class Pessoa
     {
-        string nome;
-
-        //public int idade { get; set; }
-        //public int altura { get; set; }
+        string? _nome;
+        string? _sobrenome;
 
         public Pessoa() { }
 
-        public void DefinirNome (string nome) 
+        public void DefinirNome(string nome)
         {
-            this.nome = nome;
+            this._nome = nome;
         }
 
-        public string RetornarNome() 
+        public string RetornarNome()
         {
-            return this.nome;
+            return this._nome;
+        }
+
+        public void DefinirSobreNome(string s)
+        {
+            this._sobrenome = s;
+        }
+
+        public string RetornarSobrenome()
+        {
+            return this._sobrenome;
+        }
+
+        public string RetornarNomeCompleto()
+        {
+            return RetornarNome() + " " + RetornarSobrenome();
         }
     }
     private static void Main(string[] args)
@@ -27,13 +40,9 @@
         Console.WriteLine("Informe seu nome: ");
         p.DefinirNome(Console.ReadLine());
 
-        Console.WriteLine("Informe seu nome: ");
-        p2.DefinirNome(Console.ReadLine());
+        Console.WriteLine("Informe o seu sobrenome: ");
+        p.DefinirSobreNome(Console.ReadLine());
 
-
-        Console.WriteLine("Seja bem vindo a orientação a objetivos, " + p.RetornarNome());
-        Console.WriteLine("Seja bem vindo a orientação a objetivos, " + p2.RetornarNome());
-
-
+        Console.WriteLine("Bem vindo ao inferno, "+ p.RetornarNomeCompleto());
     }
 }
